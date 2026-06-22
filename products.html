@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products</title>
+<link rel="icon" type="image/x-icon" href="/images/cat.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Jost&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'Jost', sans-serif; }
+  .font-serif { font-family: 'Playfair Display', serif; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+<div id="productLoader" class="fixed inset-0 bg-white z-[9999] flex items-center justify-center">
+
+  <div class="text-center">
+
+    <div class="w-16 h-16 border-4 border-gray-300 border-t-black rounded-full animate-spin mx-auto"></div>
+
+    <p class="mt-4 uppercase tracking-widest text-sm">
+      Loading...
+    </p>
+
+  </div>
+
+</div>
+
+<header id="site-header" class="bg-white border-b sticky top-0 z-50"></header>
+
+<div class="bg-white border-b">
+  <div class="max-w-6xl mx-auto px-6 py-3 text-xs text-gray-500">
+    <a href="index.html">Home</a> / <span class="text-gray-900">Shop</span>
+  </div>
+</div>
+
+<main class="max-w-6xl mx-auto px-6">
+
+  <div id="shopLayout" class="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-10 py-10 items-start">
+
+    <aside id="filterCol" class="hidden md:block">
+      <h3 class="font-serif text-lg mb-4 border-b pb-3">Filter</h3>
+
+      <div class="mb-6">
+        <div class="text-xs uppercase font-semibold mb-3">Categories</div>
+        <ul id="categoryFilterList" class="space-y-2"></ul>
+      </div>
+
+      <div class="mb-6">
+        <div class="text-xs uppercase font-semibold mb-3">Price</div>
+        <ul id="priceFilterList" class="space-y-2"></ul>
+      </div>
+
+      <button id="clearFiltersBtn" class="w-full border border-gray-900 text-xs uppercase rounded px-4 py-3">Clear filters</button>
+    </aside>
+
+    <section>
+      <div class="flex justify-between items-center flex-wrap gap-3 mb-6 text-sm text-gray-500">
+        <button id="mobileFilterToggle" class="md:hidden border border-gray-900 text-xs uppercase rounded px-4 py-2">Filter</button>
+        <span id="resultsSummary">Loading products...</span>
+        <select id="sortSelect" class="border rounded px-3 py-2 text-sm">
+          <option value="default">Sort: Default</option>
+          <option value="rating">Sort: Top Rated</option>
+          <option value="newest">Sort: Newest</option>
+          <option value="price-asc">Sort: Price, Low to High</option>
+          <option value="price-desc">Sort: Price, High to Low</option>
+        </select>
+      </div>
+
+      <div id="shopGrid" class="grid grid-cols-2 md:grid-cols-3 gap-6"></div>
+
+      <div id="shopPagination" class="flex justify-center gap-2 mt-10"></div>
+    </section>
+  </div>
+
+  <div id="productDetailMount" class="hidden"></div>
+
+  <div id="relatedMount"></div>
+
+</main>
+
+<footer id="site-footer" class="bg-gray-900 text-gray-300 mt-10"></footer>
+
+<script src="app.js"></script>
+<script>
+  initProductsPage();
+</script>
+</body>
+</html>

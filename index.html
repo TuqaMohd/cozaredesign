@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage</title>
+<link rel="icon" type="image/x-icon" href="/images/cat.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Jost&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'Jost', sans-serif; }
+  .font-serif { font-family: 'Playfair Display', serif; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<header id="site-header" class="bg-white border-b sticky top-0 z-50"></header>
+
+<main>
+
+  <section class="relative h-96 sm:h-[500px] overflow-hidden">
+    <div class="slide absolute inset-0 opacity-100" style="background-image:url('https://cozastore.store/images/slide-01.jpg');background-size:cover;background-position:center;">
+      <div class="max-w-6xl mx-auto px-6 h-full flex flex-col justify-center">
+        <span class="text-sm mb-2">Women Collection 2026</span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold mb-5">NEW SEASON</h2>
+        <a href="products.html" class="bg-gray-900 text-white px-6 py-3 rounded text-sm uppercase w-fit">Shop Now</a>
+      </div>
+    </div>
+    <div class="slide absolute inset-0 opacity-0" style="background-image:url('https://cozastore.store/images/slide-02.jpg');background-size:cover;background-position:center;">
+      <div class="max-w-6xl mx-auto px-6 h-full flex flex-col justify-center">
+        <span class="text-sm mb-2">Men New-Season</span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold mb-5">Jackets &amp; Coats</h2>
+        <a href="products.html" class="bg-gray-900 text-white px-6 py-3 rounded text-sm uppercase w-fit">Shop Now</a>
+      </div>
+    </div>
+    <div class="slide absolute inset-0 opacity-0" style="background-image:url('https://cozastore.store/images/slide-03.jpg');background-size:cover;background-position:center;">
+      <div class="max-w-6xl mx-auto px-6 h-full flex flex-col justify-center">
+        <span class="text-sm mb-2">Men Collection 2026</span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold mb-5">New Arrivals</h2>
+        <a href="products.html" class="bg-gray-900 text-white px-6 py-3 rounded text-sm uppercase w-fit">Shop Now</a>
+      </div>
+    </div>
+
+    <div id="slideDots" class="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2"></div>
+    <button id="slidePrev" class="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/70 items-center justify-center">‹</button>
+    <button id="slideNext" class="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/70 items-center justify-center">›</button>
+  </section>
+
+  <section class="bg-gray-100 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex justify-center">
+      <form id="heroSearchForm" class="flex w-full max-w-md">
+        <input type="search" id="heroSearchInput" placeholder="Search..."
+          class="w-full border rounded px-4 py-3 text-sm outline-none">
+      </form>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="font-serif text-2xl font-bold mb-6">Featured Products</h2>
+    <div id="featuredGrid" class="grid grid-cols-2 md:grid-cols-3 gap-6"></div>
+    <div class="text-center mt-8">
+      <button id="viewAllBtn" class="border border-gray-900 px-6 py-3 rounded text-sm uppercase">View All Products</button>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer" class="bg-gray-900 text-gray-300 mt-10"></footer>
+
+<script src="app.js"></script>
+<script>
+  initHomepage();
+  initHeroSlider();
+  renderFeaturedProducts();
+
+  document.getElementById('viewAllBtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    goToProducts({});
+  });
+</script>
+</body>
+</html>
