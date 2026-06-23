@@ -57,7 +57,8 @@ async function getCategories() {
 function renderHeader(page) {
   const header = document.getElementById("site-header");
   if (!header) return;
-
+// to do: move this to html
+// the javascript file being too large slows down that program
   header.innerHTML = `
 
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between gap-6">
